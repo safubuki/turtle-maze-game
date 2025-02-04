@@ -128,8 +128,12 @@ class Maze:
         """
         col = int((x - self.origin_x) / self.cell_size)
         row = int((y - self.origin_y) / self.cell_size)
+        print(f"Checking move validity at: ({x}, {y}) -> Maze cell: ({row}, {col})")
         if 0 <= row < self.rows and 0 <= col < self.cols:
-            return self.maze[row][col] == 0
+            is_valid = self.maze[row][col] == 0
+            print(f"Move valid: {is_valid}")
+            return is_valid
+        print("Move invalid: Out of bounds")
         return False
 
     def move_turtle(self, current_x, current_y, direction):
